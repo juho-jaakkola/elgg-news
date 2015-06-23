@@ -1,6 +1,6 @@
 <?php
 
-$english = array(
+return array(
 	'admin:news' => 'News',
 	'admin:news:all' => 'List all',
 	'admin:news:add' => 'Create',
@@ -9,5 +9,3 @@ $english = array(
 	'news:content' => 'Content',
 	'news:' => '',
 );
-
-add_translation('en', $english);

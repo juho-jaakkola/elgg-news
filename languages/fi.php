@@ -1,6 +1,6 @@
 <?php
 
-$finnish = array(
+return array(
 	'news' => 'Uutiset',
 	'news:news' => 'Uutiset',
 	'admin:news' => 'Uutiset',
@@ -35,5 +35,3 @@ $finnish = array(
 
 	'news:' => '',
 );
-
-add_translation('fi', $finnish);
