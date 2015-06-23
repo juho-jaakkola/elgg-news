@@ -25,7 +25,7 @@ function news_init() {
 	elgg_register_page_handler('news', 'news_page_handler');
 
 	// Register url handlers for entities
-	elgg_register_entity_url_handler('object', 'news', 'news_url_handler');
+	elgg_register_plugin_hook_handler('entity:url', 'object', 'news_url_handler');
 	elgg_register_plugin_hook_handler('entity:icon:url', 'object', 'news_icon_url_override');
 
 	// Register an icon handler for news
@@ -49,7 +49,13 @@ function news_init() {
  * @param news $entity
  * @return string URL of entity.
  */
-function news_url_handler($entity) {
+function news_url_handler($hook, $type, $url, $params) {
+	$entity = elgg_extract('entity', $params);
+
+	if ($entity->getSubtype() !== 'news') {
+		return $url;
+	}
+
 	$name = elgg_get_friendly_title($entity->title);
 
 	return "news/view/{$entity->guid}/$name";
