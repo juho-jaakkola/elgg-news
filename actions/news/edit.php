@@ -48,7 +48,12 @@ if ($article->save()) {
 	elgg_clear_sticky_form('news');
 
 	if ($new_post) {
-		add_to_river('river/object/news/create', 'create', elgg_get_logged_in_user_guid(), $article->getGUID());
+		elgg_create_river_item(array(
+			'view' => 'river/object/news/create',
+			'action_type' => 'create',
+			'subject_guid' => elgg_get_logged_in_user_guid(),
+			'object_guid' => $article->getGUID()
+		));
 	}
 }
 
