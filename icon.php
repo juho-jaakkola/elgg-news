@@ -5,8 +5,6 @@
  * @package news
  */
 
-require_once(dirname(dirname(dirname(__FILE__))) . "/engine/start.php");
-
 $article_guid = get_input('guid');
 $article = get_entity($article_guid);
 
