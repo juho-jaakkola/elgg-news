@@ -23,7 +23,7 @@ $metadata = elgg_view_menu('entity', array(
 ));
 
 // The "on" status changes for comments, so best to check for !no
-if (elgg_get_plugin_setting('comments_on') != 'no') {
+if (elgg_get_plugin_setting('comments_on', 'news') != 'no') {
 	$comments_count = $article->countComments();
 	//only display if there are commments
 	if ($comments_count != 0) {

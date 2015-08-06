@@ -91,7 +91,7 @@ function news_get_page_content_read($guid = NULL) {
 	$return['content'] .= '<div class="clearfloat"></div>';
 
 	// Check to see if comment are on
-	if (elgg_get_plugin_setting('comments_on') != 'no') {
+	if (elgg_get_plugin_setting('comments_on', 'news') != 'no') {
 		$return['content'] .= '<a name="news-comments"></a>';
 		$return['content'] .= elgg_view_comments($article);
 	}
