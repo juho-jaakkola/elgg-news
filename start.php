@@ -41,6 +41,12 @@ function news_init() {
 	// section, name, (parent)
 	elgg_register_admin_menu_item('administer', 'all', 'news');
 	elgg_register_admin_menu_item('administer', 'add', 'news');
+
+	elgg_register_menu_item('site', array(
+		'name' => 'news',
+		'href' => 'news',
+		'text' => elgg_echo('news'),
+	));
 }
 
 /**
@@ -103,17 +109,6 @@ function news_icon_handler($page) {
 	$plugin_dir = elgg_get_plugins_path();
 	include("$plugin_dir/news/icon.php");
 	return true;
-}
-
-/**
- * Set up news related page content.
- */
-function news_page_setup() {
-	elgg_register_menu_item('site', array(
-		'name' => 'news',
-		'href' => 'news',
-		'text' => elgg_echo('news'),
-	));
 }
 
 /**
@@ -241,4 +236,3 @@ function news_register_toggle() {
 }
 
 elgg_register_event_handler('init', 'system', 'news_init');
-elgg_register_event_handler('pagesetup', 'system', 'news_page_setup');
