@@ -54,10 +54,8 @@ if ($full) {
 
 	$author_text = elgg_echo('byline', array($owner_link));
 	$tags = elgg_view('output/tags', array('tags' => $article->tags));
-	// @todo Should this link take to just news or all content (default)?
-	$categories = elgg_view('output/categories', array('entity' => $article));
 
-	$subtitle = "$author_text $date $comments_link $categories";
+	$subtitle = "$author_text $date $comments_link";
 
 	$params = array(
 		'entity' => $article,

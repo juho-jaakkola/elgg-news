@@ -14,7 +14,6 @@ return array(
 	'news:image' => 'Uutiskuva (uusi kuva yliajaa vanhan)',
 	'news:image:caption' => 'Kuvateksti',
 	'news:image:delete' => 'Poista kuva',
-	'news:categories' => 'Uutisten aihepiirit',
 
 	// messages
 	'news:message:deleted_post' => 'Uutinen poistettu',

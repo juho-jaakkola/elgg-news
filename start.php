@@ -124,7 +124,7 @@ function news_page_handler($page) {
 		$page_type = 'all';
 	}
 
-	if (isset($page[1]) || get_input('category')) {
+	if (isset($page[1])) {
 		elgg_push_breadcrumb(elgg_echo('news'), 'news');
 	} else {
 		// No link in list view

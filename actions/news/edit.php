@@ -15,7 +15,6 @@ if ($guid) {
 	$new_post = true;
 }
 
-// Categories are saved automatically, so no need to save them.
 $fields = array(
 	'title',
 	'description',

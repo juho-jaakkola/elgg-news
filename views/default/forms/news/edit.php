@@ -19,12 +19,6 @@ $form[] = array(
 ));
 
 $form[] = array(
-	'body' => elgg_view('input/categories', array(
-		'entity' => $vars['entity'],
-	)
-));
-
-$form[] = array(
 	'label' => elgg_echo('tags'),
 	'body' => elgg_view('input/tags', array(
 		'name' => 'tags',

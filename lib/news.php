@@ -18,18 +18,6 @@ function news_get_page_content_list() {
 
 	$site = elgg_get_site_entity();
 
-	// Support for filtering by category
-	$category = get_input('category');
-	if ($category) {
-		if (in_array($category, $site->categories)) {
-			elgg_push_breadcrumb($category);
-		}
-
-		$options['metadata_name_value_pairs'] = array(
-			'universal_categories' => $category,
-		);
-	}
-
 	$return['title'] = elgg_echo('news');
 	$return['filter_context'] = 'all';
 
@@ -40,10 +28,6 @@ function news_get_page_content_list() {
 	} else {
 		$return['content'] = $list;
 	}
-
-	// Add categories to sidebar
-	$categories = elgg_view('news/categories', array('selected' => $category));
-	$return['sidebar'] = elgg_view_module('aside', elgg_echo('news:categories'), $categories);
 
 	// Add latest comments to sidebar
 	$latest_comments = elgg_view('page/elements/comments_block', array('subtypes' => 'news'));
@@ -74,16 +58,6 @@ function news_get_page_content_read($guid = NULL) {
 
 	$return['title'] = htmlspecialchars($article->title);
 
-	// @todo Is it ok to use category in breadcrumbs since there may be multiple?
-	if ($article->universal_categories) {
-		if (is_array($article->universal_categories)) {
-			$category = array_pop($article->universal_categories);
-		} else {
-			$category = $article->universal_categories;
-		}
-
-		elgg_push_breadcrumb($category, "news?category=$category");
-	}
 	elgg_push_breadcrumb($article->title);
 
 	$return['content'] = elgg_view_entity($article, array('full_view' => true));
