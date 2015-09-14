@@ -97,8 +97,9 @@ if ($full) {
 	if ($size !== 'none') {
 		echo elgg_view_entity_icon($article, $size, array('href' => false));
 	}
+	echo elgg_view_icon('clock-o');
+	echo "<span class='subtitle'>$date</span>";
 	echo "<h3>" . elgg_get_excerpt($article->title, 60) . "</h3>";
-	echo "<p class='subtitle'>$owner_link $date</p>";
 	echo '</a>';
 	echo '</div>';
 } else {

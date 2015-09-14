@@ -13,22 +13,16 @@
 /**
  * Gallery view
  */
-.elgg-gallery-news {
-}
-
 .elgg-gallery-news > li {
 	width: 48%;
 	vertical-align: top;
-	margin: 10px 4% 10px 0;
+	margin: 10px 4% 40px 0;
 }
 
 .elgg-gallery-news li:nth-child(even) {
 	margin-right: 0;
 }
 
-.news-gallery-item .subtitle {
-	font-size: 11px;
-}
 .news-gallery-item img {
 	float: left;
 	margin: 0 0 10px 0;
@@ -38,4 +32,9 @@
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
+}
+
+.news-gallery-item .subtitle {
+	display: inline-block;
+	margin: 3px 5px 10px 3px;
 }
