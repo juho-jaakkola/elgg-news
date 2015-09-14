@@ -37,4 +37,6 @@
 	width: 200px;
 	height: 130px;
 	background-size: cover;
+	background-repet: no-repeat;
+	background-position: center;
 }

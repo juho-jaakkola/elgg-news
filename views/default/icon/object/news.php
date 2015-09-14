@@ -51,10 +51,10 @@ $image_url = $entity->getIconURL($size);
 
 if ($size === 'large') {
 	// Large icon uses fixed size so set image as background
-	$spacer_url = elgg_get_site_url() . '_graphics/spacer.gif';
+	$spacer_url = elgg_get_site_url() . 'mod/news/views/default/graphics/spacer.gif';
 	$image_url = elgg_format_url($image_url);
 	$img_params['src'] = $spacer_url;
-	$img_params['style'] = "background: url($image_url) no-repeat center;";
+	$img_params['style'] = "background-image: url($image_url);";
 } else {
 	$img_params['src'] = $image_url;
 }
