@@ -13,30 +13,29 @@
 /**
  * Gallery view
  */
+.elgg-gallery-news {
+}
+
 .elgg-gallery-news > li {
+	width: 48%;
 	vertical-align: top;
+	margin: 10px 4% 10px 0;
 }
-.news-gallery-item {
-	width: 200px;
-	margin: 10px 35px 10px 0;
+
+.elgg-gallery-news li:nth-child(even) {
+	margin-right: 0;
 }
+
 .news-gallery-item .subtitle {
 	font-size: 11px;
 }
 .news-gallery-item img {
 	float: left;
 	margin: 0 0 10px 0;
-}
 
-/**
- * Icons
- */
-
-/* Define fixed size with background covering the whole area */
-.news-icon-large {
-	width: 200px;
-	height: 130px;
+	width: 100%;
+	max-height: 200px;
 	background-size: cover;
-	background-repet: no-repeat;
+	background-repeat: no-repeat;
 	background-position: center;
 }

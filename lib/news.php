@@ -14,6 +14,7 @@ function news_get_page_content_list() {
 		'full_view' => FALSE,
 		'gallery_class' => 'elgg-gallery-news',
 		'list_class' => 'elgg-list-news',
+		'list_type' => 'gallery',
 	);
 
 	$site = elgg_get_site_entity();

@@ -9,7 +9,7 @@
 
 $full    = elgg_extract('full_view', $vars, FALSE);
 $article = elgg_extract('entity', $vars, FALSE);
-$size    = elgg_extract('size', $vars, 'large');
+$size    = elgg_extract('size', $vars, 'master');
 
 if (!$article) {
 	return TRUE;
