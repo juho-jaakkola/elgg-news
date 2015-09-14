@@ -145,7 +145,6 @@ function news_page_handler($page) {
 			$params = array(); //@todo
 			break;
 		case 'all':
-			news_register_toggle();
 			$params = news_get_page_content_list();
 			break;
 		default:
@@ -204,35 +203,6 @@ function news_entity_menu_setup($hook, $type, $return, $params) {
 	}
 
 	return $return;
-}
-
-/**
- * Adds a toggle to extra menu for switching between list and gallery views
- */
-function news_register_toggle() {
-	$url = elgg_http_remove_url_query_element(current_page_url(), 'list_type');
-
-	if (get_input('list_type', 'gallery') == 'list') {
-		$list_type = "gallery";
-		$icon = elgg_view_icon('grid');
-	} else {
-		$list_type = "list";
-		$icon = elgg_view_icon('list');
-	}
-
-	if (substr_count($url, '?')) {
-		$url .= "&list_type=" . $list_type;
-	} else {
-		$url .= "?list_type=" . $list_type;
-	}
-
-	elgg_register_menu_item('extras', array(
-		'name' => 'news_list',
-		'text' => $icon,
-		'href' => $url,
-		'title' => elgg_echo("news:list:$list_type"),
-		'priority' => 1000,
-	));
 }
 
 elgg_register_event_handler('init', 'system', 'news_init');
