@@ -40,4 +40,10 @@
 .news-gallery-item .subtitle {
 	display: inline-block;
 	margin: 3px 5px 10px 3px;
+	color: #000;
+}
+
+.news-gallery-item .elgg-icon {
+	font-size: 14px;
+	color: #000;
 }
