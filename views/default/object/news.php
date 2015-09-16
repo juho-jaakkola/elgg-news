@@ -70,7 +70,7 @@ if ($full) {
 	$body = '';
 
 	if ($article->icontime) {
-		$icon = elgg_view_entity_icon($article, 'master');
+		$icon = elgg_view_entity_icon($article, 'original');
 
 		$caption = "<div>{$article->caption}</div>";
 		$image_block = '<div class="news-image-block">' . $icon . $caption . "</div>";

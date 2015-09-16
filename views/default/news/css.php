@@ -1,13 +1,16 @@
 /**
  * Make news text to wrap around news image nicely
  */
+
 .news-article .news-image-block {
-	max-width: 400px;
-	float: right;
-	margin: 10px 0 5px 10px;
+	margin: 10px 0 5px 0;
 	color: grey;
 	font-size: 0.8em;
 	line-height: 1.3em;
+}
+
+.news-article .news-image-block img {
+	width: 100%;
 }
 
 /**

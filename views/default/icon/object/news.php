@@ -15,7 +15,7 @@ $entity = $vars['entity'];
 
 // Get size
 $size = elgg_extract('size', $vars, '');
-$sizes = array('small', 'medium', 'large', 'tiny', 'master', 'topbar');
+$sizes = array('small', 'medium', 'large', 'tiny', 'master', 'topbar', 'original');
 if (!in_array($size, $sizes)) {
 	$size = "medium";
 }

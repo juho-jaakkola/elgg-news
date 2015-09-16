@@ -16,14 +16,22 @@ if (isset($_SERVER['HTTP_IF_NONE_MATCH']) && trim($_SERVER['HTTP_IF_NONE_MATCH']
 }
 
 $size = strtolower(get_input('size'));
-if (!in_array($size, array('large', 'medium', 'small', 'tiny', 'master', 'topbar')))
+if (!in_array($size, array('original', 'large', 'medium', 'small', 'tiny', 'master', 'topbar'))) {
 	$size = "medium";
+}
+
+if ($size === 'original') {
+	// The original image gets saved without prefix
+	$filename = "{$article->guid}.jpg";
+} else {
+	$filename = "{$article->guid}{$size}.jpg";
+}
 
 $success = false;
 
 $filehandler = new ElggFile();
 $filehandler->owner_guid = $article->owner_guid;
-$filehandler->setFilename("news/" . $article->guid . $size . ".jpg");
+$filehandler->setFilename("news/{$filename}");
 
 $success = false;
 if ($filehandler->open("read")) {
