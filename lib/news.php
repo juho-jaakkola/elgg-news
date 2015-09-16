@@ -6,34 +6,42 @@
  * @return array
  */
 function news_get_page_content_list() {
-	$return = array();
-
-	$options = array(
+	// Get the latest article
+	$newest = elgg_get_entities(array(
 		'type' => 'object',
 		'subtype' => 'news',
-		'full_view' => FALSE,
-		'gallery_class' => 'elgg-gallery-news',
-		'list_class' => 'elgg-list-news',
-		'list_type' => 'gallery',
-	);
+		'limit' => 1,
+	));
 
-	$site = elgg_get_site_entity();
-
-	$return['title'] = elgg_echo('news');
-	$return['filter_context'] = 'all';
-
-	$list = elgg_list_entities_from_metadata($options);
-
-	if (!$list) {
-		$return['content'] = elgg_echo('news:none');
+	if (!$newest) {
+		// No articles
+		$content = elgg_echo('news:none');
 	} else {
-		$return['content'] = $list;
+		// Display the first one separately
+		$newest_article = elgg_view('news/preview', array('entity' => $newest[0]));
+
+		$list = elgg_list_entities(array(
+			'type' => 'object',
+			'subtype' => 'news',
+			'wheres' => array("guid != {$newest[0]->guid}"),
+			'full_view' => FALSE,
+			'gallery_class' => 'elgg-gallery-news',
+			'list_class' => 'elgg-list-news',
+			'list_type' => 'gallery',
+			'limit' => 6,
+		));
+
+		$content = $newest_article . $list;
 	}
 
 	// Add latest comments to sidebar
 	$latest_comments = elgg_view('page/elements/comments_block', array('subtypes' => 'news'));
-	$return['sidebar'] .= $latest_comments;
 
+	$return = array(
+		'title' => elgg_echo('news'),
+		'sidebar' => $latest_comments,
+		'content' => $content,
+	);
 
 	return $return;
 }
