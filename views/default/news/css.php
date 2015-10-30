@@ -33,7 +33,7 @@
 
 	width: 100%;
 	max-height: 200px;
-	background-size: cover;
+	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: center;
 }
